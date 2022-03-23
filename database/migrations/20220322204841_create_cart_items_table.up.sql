@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS cart_items (
+  id VARCHAR(255) PRIMARY KEY,
+  cart_id VARCHAR(255) NOT NULL,
+  sku VARCHAR(255) NOT NULL,
+  product_name VARCHAR(255) NOT NULL,
+  quantity INT NOT NULL DEFAULT 0,
+  FOREIGN KEY (cart_id) REFERENCES carts(id),
+  UNIQUE(cart_id, sku)
+) ENGINE=INNODB;
